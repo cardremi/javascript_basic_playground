@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/v4-shims.min.css"
+        integrity="sha512-TKC//SlSmVlVSNAxlaGD3ZC1Z1713aVpqLcQMdLgN0HdmarnqZ9VNTsTKR/8PxMYzvPZRstdB8mCpLYkWLTdyA=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="./style.css"> -->
+    <title>js playground</title>
+</head>
+
+<body>
+    <input type="text" id="input_name">
+    <button type="button" onclick="yosh()" class="btn btn-primary">Ashiap</button>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script>
+
+        console.log("1.=============================================")
+        students = [
+            {
+                name: 'Rocky',
+                score: '90'
+            },
+            {
+                name: 'John Doe',
+                score: '0'
+            }
+        ]
+
+        function convertNumToLetter(num) {
+            if (num > 100) {
+                return "Invalid";
+            } else if (num => 80) {
+                return "A";
+            } else if (num => 65) {
+                return "B";
+            } else if (num => 50) {
+                return "C";
+            } else if (num => 35) {
+                return "D";
+            } else {
+                "Invalid";
+            }
+        }
+
+        for (var i = 0; i < students.length; i++) {
+            console.log(`Student name: ${students[i].name}`)
+            console.log(`Student score: ${students[i].score}`)
+            if (+students[i].score <= 0 || +students[i].score > 100) {
+                console.log("INVALID")
+            } else {
+                console.log(`${students[i].name} mendapat nilai ${convertNumToLetter(students[i].score)}`)
+            }
+        }
+        console.log("2. =============================================\n")
+        persons = ['daniel', 'imelda', 'taufik', 'sergei']
+        for (var i = 0; i < persons.length; i++) {
+            console.log(persons[i])
+            if (persons[i][0] == 'a' || persons[i][0] == 'b' || persons[i][0] == 'c' || persons[i][0] == 'd') {
+                console.log('Masuk grup pertama')
+            } else if (persons[i][0] == 'e' || persons[i][0] == 'f' || persons[i][0] == 'g' || persons[i][0] == 'h') {
+                console.log('Masuk grup kedua')
+            } else {
+                console.log('Masuk grup terakhir')
+            }
+        }
+        console.log("3. =============================================\n")
+
+        function addTitle(name1, name2, name3, name4) {
+            let concated = "";
+            for (let i = 0; i < arguments.length; i++) {
+                if (i === arguments.length - 1) {
+                    concated += "Mr ." + arguments[i] + ""
+                } else {
+                    concated += "Mr ." + arguments[i] + ", "
+                }
+            }
+            console.log(concated);
+        }
+
+        function changeSpaceWith(param, replaceChar) {
+            const replacedParam = param.replace(" ", replaceChar)
+            console.log(replacedParam)
+        }
+
+        function cutStringBySix(param) {
+            let temp = "";
+            for (var i = 0; i < 6; i++) {
+                temp += param[i];
+            }
+            console.log(temp);
+        }
+
+        addTitle("Udin", "Temon", "Abdel", "Muklis")
+        changeSpaceWith("Steve Fox", "~")
+        cutStringBySix("Prieyudha Akadita S")
+
+        console.log("4. =====================================================\n")
+        function drawSymbolicColsBox(num) {
+            let t = 1;
+            let output = "";
+            for (var i = 1; i <= num; i++) {
+                for (var j = 1; j <= num; j++) {
+                    if (t % 2 == 0) {
+                        output += " $ ";
+                    } else {
+                        if (t % 3 == 0) {
+                            output += ' * ';
+                        } else {
+                            output += ' @ ';
+                        }
+                    }
+                    t++;
+                }
+                console.log(output);
+                output = '';
+            }
+        }
+
+        drawSymbolicColsBox(3);
+        console.log("\n\n");
+        drawSymbolicColsBox(5);
+        console.log("\n\n");
+        drawSymbolicColsBox(1);
+        console.log("\n\n");
+
+
+        console.log("5.=============================================================")
+        function graduatesCount(scores) {
+            if (scores.length === 0) {
+                return "Data kosong";
+            } else {
+                let y = 0;
+                let lulus = 0;
+                while (y < scores.length) {
+                    if (scores[y] >= 75) {
+                        lulus++;
+                    }
+                    y++;
+                }
+                if (lulus === scores.length) {
+                    return "Semua lulus!";
+                } {
+                    return lulus + " orang lulus";
+                }
+            }
+        }
+
+
+        console.log(graduatesCount([76, 77, 30, 80, 10, 20])); // 3 orang lulus
+        console.log(graduatesCount([100, 100, 74, 60, 87])); // 3 orang lulus
+        console.log(graduatesCount([90, 100, 85, 79, 80, 74])); // 5 orang lulus
+        console.log(graduatesCount([100, 100, 100, 85, 90])); // Semua orang lulus
+        console.log(graduatesCount([0, 0, 0, 0, 0])); // Tidak ada yang lulus
+        console.log(graduatesCount([]));
+
+        console.log("6. ============================================================");
+
+        function reverseString(s) {
+            var newString = "";
+            for (var i = s.length - 1; i >= 0; i--) {
+                newString += s[i];
+            }
+            return newString;
+        }
+        function reverseAll(arr) {
+            let temp = [];
+            if (arr.length !== 0) {
+                let i = 0;
+                let l = arr.length - 1;
+                while (l >= 0) {
+                    temp[i] = reverseString(arr[l]);
+                    l--;
+                    i++;
+                }
+                return temp;
+            }
+            return [];
+        }
+
+
+        console.log(reverseAll(['dimitri', 'sergei', 'alexei']));
+        console.log(reverseAll(['kira', 'lawliet', 'near', 'mello']));
+        console.log(reverseAll([]));
+
+
+        console.log("7. ==============================================================")
+
+
+
+        function arrayMerge(firstData, secondData) {
+            let concated = [];
+            for (var i = 0; i < firstData.length; i++) {
+                concated[i] = firstData[i];
+            }
+            let r = 0;
+            for (var i = concated.length; r < secondData.length; i++) {
+                concated[i] = secondData[r];
+                r++;
+            }
+            return Array.from(new Set([...concated]));
+        }
+
+
+        console.log(arrayMerge(['king', 'devil jin', 'akuma'], ['eddie', 'steve', 'geese']));
+        // ['king', 'devil jin', 'akuma', 'eddie', 'steve', 'geese']
+        console.log(arrayMerge(['sergei', 'jin'], ['jin', 'steve', 'bryan']));
+        // ['sergei', 'jin', 'steve', 'bryan']
+        console.log(arrayMerge(['alisa', 'yoshimitsu'], ['devil jin', 'yoshimitsu', 'alisa', 'law']));
+        // ['alisa', 'yoshimitsu', 'devil jin', 'law']
+
+        console.log(arrayMerge([], ['devil jin', 'sergei']));
+        // ['devil jin', 'sergei']
+
+        console.log(arrayMerge(['hwoarang'], []));
+        // ['hwoarang']
+        console.log(arrayMerge([], []));
+
+
+        console.log("8.=================================================");
+        function secondLargest(nums) {
+            for (var i = 1; i < nums.length; i++) {
+                var temp = nums[i];
+                for (var j = i - 1; j >= 0 && temp < nums[j]; j--) nums[j + 1] = nums[j];
+                nums[j + 1] = temp;
+            }
+
+            return nums[nums.length-2];
+        }
+
+        console.log(secondLargest([5, 2, 1, 4])); // 4
+        console.log(secondLargest([999, 5, 0, 1, 4, 998])); // 998
+        console.log(secondLargest([15, 32, 11, 14])); // 15
+        console.log(secondLargest([5, 4, 3, 2, 1, 0])); // 4
+        console.log(secondLargest([123, 321, 143, 313])); //313
+
+    </script>
+</body>
+
+</html>
