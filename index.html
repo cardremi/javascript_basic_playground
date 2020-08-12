@@ -64,6 +64,8 @@
                 console.log(`${students[i].name} mendapat nilai ${convertNumToLetter(students[i].score)}`)
             }
         }
+
+
         console.log("2. =============================================\n")
         persons = ['daniel', 'imelda', 'taufik', 'sergei']
         for (var i = 0; i < persons.length; i++) {
@@ -82,9 +84,9 @@
             let concated = "";
             for (let i = 0; i < arguments.length; i++) {
                 if (i === arguments.length - 1) {
-                    concated += "Mr ." + arguments[i] + ""
+                    concated += "Mr. " + arguments[i] + ""
                 } else {
-                    concated += "Mr ." + arguments[i] + ", "
+                    concated += "Mr. " + arguments[i] + ", "
                 }
             }
             console.log(concated);
@@ -104,8 +106,8 @@
         }
 
         addTitle("Udin", "Temon", "Abdel", "Muklis")
-        changeSpaceWith("Steve Fox", "~")
-        cutStringBySix("Prieyudha Akadita S")
+        changeSpaceWith("Steve Fox", "+")
+        cutStringBySix("Kazuya Mishima")
 
         console.log("4. =====================================================\n")
         function drawSymbolicColsBox(num) {
@@ -152,7 +154,9 @@
                 }
                 if (lulus === scores.length) {
                     return "Semua lulus!";
-                } {
+                }else if(lulus === 0) {
+                    return "Tidak ada yang lulus";
+                }else{
                     return lulus + " orang lulus";
                 }
             }
@@ -201,10 +205,7 @@
 
 
         function arrayMerge(firstData, secondData) {
-            let concated = [];
-            for (var i = 0; i < firstData.length; i++) {
-                concated[i] = firstData[i];
-            }
+            let concated = firstData;
             let r = 0;
             for (var i = concated.length; r < secondData.length; i++) {
                 concated[i] = secondData[r];
@@ -233,10 +234,11 @@
         function secondLargest(nums) {
             for (var i = 1; i < nums.length; i++) {
                 var temp = nums[i];
-                for (var j = i - 1; j >= 0 && temp < nums[j]; j--) nums[j + 1] = nums[j];
+                for(var j = i-1; j>= 0 && temp < nums[j]; j--){
+                    nums[j + 1] = nums[j];
+                }
                 nums[j + 1] = temp;
             }
-
             return nums[nums.length-2];
         }
 
