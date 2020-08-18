@@ -1,0 +1,47 @@
+/*
+Array Remover
+Array remover merupakan sebuah function yang berfungsi untuk menghapus value
+dari sebuah array yang diberikan berdasarkan jumlah yang ingin dihapus dan index
+mulai.
+
+Array remover menerima tiga parameter yaitu array of number, index untuk mulai
+menghapus dan jumlah data yang akan dihapus
+
+Contoh:
+Input:
+  array: [ 666, 666, 333, 10, 5, 6]
+  index: 1
+  count: 2
+
+Output:
+  [ 666, 10, 5, 6 ]
+
+RULES:
+  - WAJIB MENYERTAKAN ALGORITMA / PSEUDOCODE
+  - Dilarang menggunakan built-in function .map, .filter, .reduce!
+*/
+
+
+function isShouldAdded(current_index, index, count){
+  if(current_index >= index && current_index < (index+count)){
+    return false;
+  }
+  return true;
+}
+
+function arrayRemover(array, index, count) {
+  let filtered_arr = [];
+
+  for (let i = 0; i < array.length; i++) {
+    if(isShouldAdded(i, index, count)){
+      let current_lenth = filtered_arr.length;
+      filtered_arr[current_lenth] = array[i];
+    }
+  }
+  return filtered_arr;
+
+}
+
+console.log(arrayRemover([1, 2, 3], 0, 2)); // [3]
+console.log(arrayRemover([666, 666, 333, 10, 5, 6], 1, 2)); // [ 666, 10, 5, 6 ]
+console.log(arrayRemover([1, 2, 3], 0, 3)) // []
