@@ -24,7 +24,7 @@ Let's start our own wizardy, shall we?
 */
 
 function whosTheWinner(goals) {
-  let obj = {}
+  const obj = {}
   for (let i = 0; i < goals.length; i++) {
     if(obj[goals[i]]){
       obj[goals[i]] = obj[goals[i]]+1;
@@ -35,12 +35,12 @@ function whosTheWinner(goals) {
   if(Object.keys(obj).length === 0){
     return "Draw, pertandingan akan dilanjutkan dengan penalty kick!"
   }else{
-    let scoreGryffindor = obj['Gryffindor']
-    let scoreSlytherin = obj['Slytherin']
+    const scoreGryffindor = obj['Gryffindor']
+    const scoreSlytherin = obj['Slytherin']
     if(scoreGryffindor === scoreSlytherin){
       return "Draw, pertandingan akan dilanjutkan dengan penalty kick!"
     }else{
-      let name = scoreGryffindor > scoreSlytherin ? "Gryfindor": "Slytherin" 
+      const name = scoreGryffindor > scoreSlytherin ? "Gryfindor": "Slytherin" 
       return `${name} juara sutpal`
     }
   }

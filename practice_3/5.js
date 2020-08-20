@@ -35,9 +35,9 @@
 
 function numberArrayOperation(arr) {
   let sum = 0;
-  let res = [];
+  const res = [];
   for (let i = 0; i < arr.length; i++) {
-    if(arr[i] % 3 ===0 ){
+    if(arr[i] % 3 === 0 ){
       res[i] = arr[i] * 5;
     }else{
       if(arr[i] % 2 === 0){

@@ -15,35 +15,30 @@ Pastikan kamu mengisi selang-seling, lihatlah pattern dari output di test case!
 
 function multiDimensionalXO(size) {
   let res = [];
-  let counter = 0;
-  let pivot = "o";
+  let pivot = 1;
   if(size < 1){
-    console.log("Invalid input")
-    return;
+    return "Invalid input";
   }
 
   for (let i = 0; i < size; i++) {
     let temp = [];
     for(let j = 0; j< size; j++){
-      if(counter == 0){
-        temp[j] = pivot;
-      }else{
-        pivot = pivot == "o" ? "x" : "o";
-        temp[j] = pivot;
-      }
-      counter++;
+      const a = pivot % 2 === 0 ? "x" : "o";
+      temp.push(a);
+      pivot++;
     }
-    res[i] = temp;    
+    //res[i] = temp;
+    res.push(temp);
   }
-
   return res;
 }
 
 
 console.log(multiDimensionalXO(3));
 // [ [ 'o', 'x', 'o' ], [ 'x', 'o', 'x' ], [ 'o', 'x', 'o' ] ]
-
+console.log('\n');
 console.log(multiDimensionalXO(5));
+console.log('\n')
 /*
 [ [ 'o', 'x', 'o', 'x', 'o' ],
   [ 'x', 'o', 'x', 'o', 'x' ],

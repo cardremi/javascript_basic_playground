@@ -57,70 +57,27 @@ function multiply(a, b){
 function divide(a, b){
   return a/b;
 }
-function isValidArraySize(arr){
-  let default_value = 0;
-  let isValid = true;
-  for (let i = 0; i < arr.length; i++) {
-    if(i == 0){
-      default_value = arr[i].length;
-    }else{
-      if(default_value != arr[i].length){
-        isValid = false;
-        break;
-      }
-    }
-  }
-  return isValid;
-}
-
-
-
 
 function operasiMatriks(arr1, arr2, operator) {
   let counter = 0;
-  let res = [];
-  if(!isValidArraySize(arr1)){
-    return "Array tidak valid";
-  }
-  if(!isValidArraySize(arr2)){
-    return "Array tidak valid";
-  }
-
+  const res = [];
   for (let i = 0; i < arr1.length; i++) {
-    let temp = [];
+    const temp = [];
     for (let j = 0; j < arr1[i].length; j++) {
-      let a = arr1[i][j];
-      let b = arr2[i][j]
-      let c;
-      if(operator == '+'){
-        c = add(a, b);
-      }else if(operator == '-'){
-        c = minus(a,b);
-      }else if(operator == '*'){
-        c = multiply(a,b);
+      if(arr1[i].length === arr2[i].length){
+        const a = arr1[i][j];
+        const b = arr2[i][j]
+        let c = add(a, b);
+        temp[j] = c;
+        res[i] = temp;
+        counter++;
       }else{
-        c = divide(a,b);
+        return "Kedua array tidak bisa dioperasikan"
       }
-      temp[j] = c;
-      res[i] = temp;
-      counter++;      
     }
   }
-
-
   return res;
 }
-
-//check multiply
-console.log(operasiMatriks([
-  [5, 4, 7],
-  [3, 9, 3],
-  [8, 3, 2]
-], [
-  [5, 4, 8],
-  [1, 9, 3],
-  [8, 2, 2]
-], "*"));
 
 console.log(operasiMatriks([
   [5, 4, 7],

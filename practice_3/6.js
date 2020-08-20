@@ -25,7 +25,7 @@
 **/
 
 function countMe(names) {
-  let obj = {}
+  const obj = {}
   for (let i = 0; i < names.length; i++) {
     for (let j = 0; j < names[i].length; j++) {
       if(obj[names[i][j]]){

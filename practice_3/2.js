@@ -30,8 +30,7 @@ function isShouldAdded(current_index, index, count){
 }
 
 function arrayRemover(array, index, count) {
-  let filtered_arr = [];
-
+  const filtered_arr = [];
   for (let i = 0; i < array.length; i++) {
     if(isShouldAdded(i, index, count)){
       let current_lenth = filtered_arr.length;
@@ -39,7 +38,6 @@ function arrayRemover(array, index, count) {
     }
   }
   return filtered_arr;
-
 }
 
 console.log(arrayRemover([1, 2, 3], 0, 2)); // [3]
