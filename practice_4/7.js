@@ -25,7 +25,7 @@ function formatOutput(arr){
     return res.length === 0 ? "tidak ada data" : res;
 }
 
-function fishFilter(fishes) {
+function fishFilter2(fishes) {
     const fishFound = [];
     for (let i = 0; i < fishes.length; i++) {
         let temp = "";
@@ -41,6 +41,22 @@ function fishFilter(fishes) {
                     fishFound.push(fishes[i]);
                     temp = "";
                 }
+            }else{
+                temp += fishes[i][j];
+            }
+        }        
+    }
+    return formatOutput(fishFound);
+}
+
+function fishFilter(fishes) {
+    const fishFound = [];
+    for (let i = 0; i < fishes.length; i++) {
+        let temp = "";
+        for (let j = 0; j < fishes[i].length; j++) {
+            if(temp == 'ikan'){
+                fishFound.push(fishes[i]);
+                temp = "";
             }else{
                 temp += fishes[i][j];
             }
