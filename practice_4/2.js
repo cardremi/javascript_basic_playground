@@ -31,10 +31,19 @@ function pairUp(student) {
         if(counter % 2 === 0){
             res.push(temp);
             temp = "";
+        }else{
+            if( i == student.length-1){
+                temp += student[i] + " dan Instruktur";
+                res.push(temp);
+                temp = "";
+            }
         }
         counter++;
     }
     return res;
 }
 
+
 console.log(pairUp(['Budi', 'Badu', 'Indra', 'Indri']))
+console.log(pairUp(['Budi', 'Badu', 'Indra', 'Indri', 'James']))
+console.log(pairUp([]))

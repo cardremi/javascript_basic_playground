@@ -25,16 +25,13 @@ xoxoxo
 */
 
 function drawLadder(row) {
-    let counter = 1;
     for (let i = 0; i < row; i++) {
         let temp = "";
         for (let j = 0; j < i+1; j++) {
             temp += j % 2 === 0 ? "x" : "o";
         }
-        counter++;
         console.log(temp);
     }
-  
 }
 
 drawLadder(6);

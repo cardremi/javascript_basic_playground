@@ -29,7 +29,6 @@ function fishFilter(fishes) {
     const fishFound = [];
     for (let i = 0; i < fishes.length; i++) {
         let temp = "";
-        // console.log(fishes[i])
         for (let j = 0; j < fishes[i].length; j++) {
             if(j == fishes[i].length-1){
                 temp += fishes[i][j];
