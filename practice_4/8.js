@@ -49,7 +49,7 @@ function printBranch(branches) {
         let perMonth = "";
         perMonth += `| ${month[i]} | `
         for (let x = 0; x < branches.length; x++) {
-            perMonth += `BRANCH ${x+1} | `
+            perMonth += `BRANCH-${x+1} `
             for (let z = 0; z < branches[x].length; z++) {
                 if(z == 0){
                     perMonth += " IN "+ branches[x][z][i] + " : ";
@@ -82,7 +82,7 @@ var data1 = [
 ]
 
 // processAllBranch(data1)
-printBranch(data1);
+console.log(printBranch(data1));
 
 /*
 | jan | Branch-1 IN: 1000 | OUT:500 |Branch-2 IN: 1000 | OUT:700 |Branch-3 IN: 2000 | OUT:500 |
