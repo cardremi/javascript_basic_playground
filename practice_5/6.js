@@ -75,6 +75,7 @@ function initialGroupingDescending(studentsArr) {
 }
 
 console.log(initialGroupingDescending(['Budi', 'Badu', 'Joni', 'Jono']));
+console.log("\n\n")
 /*
 [
   [ 'J', 'Joni', 'Jono' ],
@@ -83,6 +84,7 @@ console.log(initialGroupingDescending(['Budi', 'Badu', 'Joni', 'Jono']));
 */
 
 console.log(initialGroupingDescending(['Mickey', 'Yusuf', 'Donald', 'Ali', 'Gong']));
+console.log("\n\n")
 /*
 [
   [ 'Y', 'Yusuf' ],

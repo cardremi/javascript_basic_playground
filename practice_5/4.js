@@ -49,8 +49,10 @@ WHILE i < 8
 
 function getPrime(num) {
     const res = [];
-    for (let i = 2; i < num; i++) {
+    for (let i = 2; i <= num; i++) {
         let isPrime = true;
+        //misal i itu 5
+        // 5/2 ? , 5/3 ?, 5/4?,
         for (let j = 2; j < i; j++){
             if(i % j === 0){
                 isPrime = false

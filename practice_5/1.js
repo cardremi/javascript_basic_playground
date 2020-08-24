@@ -37,4 +37,5 @@ function interestingSquare(num){
 }
 
 interestingSquare(3)
+console.log("\n\n");
 interestingSquare(5)

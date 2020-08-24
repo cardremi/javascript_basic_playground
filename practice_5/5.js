@@ -82,6 +82,8 @@ function minDistanceBetweenGreatest(arr) {
      return searchMinimumDistance(res);
 }
 
+
+// console.log(minDistanceBetweenGreatest([3, 5, 2, 5, 2, 2, 2,2,2,2,2, 10]));
 console.log(minDistanceBetweenGreatest([3, 5, 2, 3, 5, 3, 5])); //2
 console.log(minDistanceBetweenGreatest([1, 1, 1, 1, 1, 1])); //1
 console.log(minDistanceBetweenGreatest([7, 8, 5, 2, 1, 1])); //0

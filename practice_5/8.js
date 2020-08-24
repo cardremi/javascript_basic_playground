@@ -44,105 +44,73 @@ function formatDuration(seconds) {
     const YEAR = 31536000, DAY = 86400, HOUR = 3600, MINUTES = 60;
     let temp = seconds;
     const time = [0, 0, 0, 0];
-    let year = 0;
-    let day = 0;
-    let hour = 0;
-    let minutes = 0;
-    if(temp === 0){
+    const res = [];
+    if (temp === 0) {
         return "Sekarang"
     }
-    if(temp > YEAR){
+    if (temp > YEAR) {
         let doLoop = true
-        while(doLoop){
+        while (doLoop) {
             temp = temp - YEAR;
             time[0] += 1;
-            if(temp < YEAR){
+            if (temp < YEAR) {
                 doLoop = false;
             }
         }
+        res.push(time[0] + " tahun")
     }
 
-    if(temp > DAY){
+    if (temp > DAY) {
         let doLoop = true
-        while(doLoop){
+        while (doLoop) {
             temp = temp - DAY;
             time[1] += 1;
-            if(temp < DAY){
+            if (temp < DAY) {
                 doLoop = false;
             }
         }
+        res.push(time[1] + " hari")
     }
 
-    if(temp > HOUR){
+    if (temp > HOUR) {
         let doLoop = true
-        while(doLoop){
+        while (doLoop) {
             temp = temp - HOUR;
             time[2] += 1;
-            if(temp < HOUR){
+            if (temp < HOUR) {
                 doLoop = false;
             }
         }
+        res.push(time[2] + " jam")
     }
 
-    if(temp >= MINUTES){
+    if (temp >= MINUTES) {
         let doLoop = true
-        while(doLoop){
+        while (doLoop) {
             temp = temp - MINUTES;
             time[3] += 1;
-            if(temp < MINUTES){
+            if (temp < MINUTES) {
                 doLoop = false;
             }
         }
+        res.push(time[3] + " menit")
+    }
+
+    if (temp != 0) {
+        res.push(temp + " detik")
     }
 
     let str = "";
-    if(time[0] != 0){ 
-        str += time[0]+" tahun"
-        if(time[1] != 0){
-            str += ","
-        } 
-    }
-    if(time[1] != 0){ 
-        str +=  `${time[1]} hari`
-        if(time[2] != 0){
-            str += ","
+    for (let i = 0; i < res.length; i++) {
+        if (res.length === 1 || i === 0) {
+            str += res[i];
+        } else if (i === res.length - 1) {
+            str += " dan " + res[i];
+        } else if (i !== 0) {
+            str += ", " + res[i];
         }
     }
-    if(time[2] != 0){ 
-        str += ` ${time[2]} jam`
-        if(time[3] != 0){
-            str += ","
-        }
-    }
-    if(time[3] != 0){ 
-        str += ` ${time[3]} menit` 
-        if(temp != 0){
-            str += ","
-        }
-    }
-    if(temp != 0){ 
-        str += temp+" detik" 
-    }
-
-    let a = "";
-    for (let i = 0; i < time.length; i++) {
-        if(time[i] != 0){
-            if(i == 0){
-                a += `${time[i]} tahun`
-            }else if(i == 1){
-                a += `${time[i]} hari`
-            }else if(i == 2){
-                a += `${time[i]} jam`
-            }else if(i == 3){
-                a += `${time[i]} menit`
-            }
-        }else if(time[i+1] != 0){
-            a += ", "
-        }
-
-    }
-
-    return a
+    return str
 
 }
 
