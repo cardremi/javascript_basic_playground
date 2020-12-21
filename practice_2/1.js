@@ -40,8 +40,7 @@ function addEvenOdd(arrNum) {
     });
     res.push([oddSum])
     res.push([evenSum])
-    // return res;
-    return `[ [${oddSum}], [${evenSum}] ]`
+    return res;
 }
 
 console.log(addEvenOdd([3, 5, 7, 8])); // [ [15], [8] ]
